@@ -3,7 +3,9 @@ Protection device using microcontroler ESP8266 WiFi Module and GPS GY-NEO6MV2 mo
 
 <img src="gambar/phone-UI.png" height="500">
 with the schematic like this
+
 * using gps tracker to get coordinate longitude and latitude of the user position
 * eps8266 is for sending to firebase database
-* stun gun is using
+* stun gun will trigger if some input is on
+
 <img src="gambar/schematic.png" height="150">
