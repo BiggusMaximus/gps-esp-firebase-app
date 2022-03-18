@@ -4,5 +4,4 @@ Protection device using microcontroler ESP8266 WiFi Module and GPS GY-NEO6MV2 mo
 <img src="gambar/phone-UI.png" height="500">
 
 with the schematic like this
-
-<img src="gambar/schematic.png" height="500">
+<img src="gambar/schematic.png" height="100">
