@@ -7,6 +7,9 @@
 #define TX 3
 #define sw 5;
 byte value_sw;
+float latitude ;
+float longitude;
+String status;
 
 #define NAME_WIFI "PARAMITA"
 #define PASSWORD "084655"
@@ -37,10 +40,54 @@ void loop() {
   // put your main code here, to run repeatedly:
   value_sw = digitalRead(sw);
   if(value_sw == 1){
+    status = "Keadaan bahaya";
      if (gps.location.isValid())
      {
-         lat = gps.location.lat();
-         lng = gps.location.lng();
+         latitude = gps.location.lat();
+         longitude = gps.location.lng();
+         if(Firebase.setFloat(firebaseData, "/GPS/latitude", latitude))
+         {
+          print_ok();
+         }
+         else
+         {
+          print_fail();
+         }
+         if(Firebase.setFloat(firebaseData, "/GPS/longitude", longitude))
+         {
+          print_ok();
+         }
+         else
+         {
+          print_fail();
+         }
       }
+      
+  }else{
+    status = "Aman";
+    if(Firebase.setFloat(firebaseData, "/GPS/longitude", longitude))
+         {
+          print_ok();
+         }
+         else
+         {
+          print_fail();
+         }
+    if(Firebase.setFloat(firebaseData, "/GPS/latitude", latitude))
+         {
+          print_ok();
+         }
+         else
+         {
+          print_fail();
+         }
+    if(Firebase.setString(firebaseData, "/GPS/status", status))
+        {
+          print_ok();
+         }
+         else
+         {
+          print_fail();
+         }
   }
 }
